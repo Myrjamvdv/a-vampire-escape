@@ -4,14 +4,14 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  productGUID: d2e896272e8c2ea4491e953868084bbd
+  productGUID: 106a5bdc64f95534792b8f096428cc9f
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Klimtwave2
+  productName: the-vampire-escape2
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -505,14 +505,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Klimtwave2
+  metroPackageName: the-vampire-escape2
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Klimtwave2
+  metroApplicationDescription: the-vampire-escape2
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -583,11 +583,12 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 3791efef-5138-4539-b46b-90c592d8faf2
-  projectName: Klimtwave2
+  cloudProjectId: 8c7c53f4-1708-4f6e-b40c-2cc4e5c380bc
+  projectName: the-vampire-escape2
   organizationId: myrjamvdv
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

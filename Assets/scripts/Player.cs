@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -23,7 +24,14 @@ public class Player : MonoBehaviour
         HandleInput ();
     }
 
-    void HandleInput ()
+    void OnCollisionEnter2D (Collision2D collision)
+    {
+        if (collision.gameObject.tag == "deadlyOnTouch") {
+            Die ();
+        }
+    }
+
+    private void HandleInput ()
     {
         if (Input.GetKey (KeyCode.Escape) || Input.GetKey (KeyCode.Q)) {
             Debug.Log ("Quitting.");
@@ -60,11 +68,19 @@ public class Player : MonoBehaviour
     {
         if (isGrounded ()) {
             body.AddForce (JUMP_SPEED * Vector2.up);
+        } else {
+            Debug.Log ("Can't jump if you're feet aren't touching the ground!");
         }
     }
 
     private bool isGrounded ()
     {
         return Physics2D.OverlapCircle (feet.transform.position, FEET_RADIUS, whatIsGround);
+    }
+
+    private void Die ()
+    {
+        Debug.Log ("Game over!");
+        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
 }

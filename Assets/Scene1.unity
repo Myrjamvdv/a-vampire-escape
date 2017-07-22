@@ -341,8 +341,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90e9f8bb0d94848c785026e8c0d11859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   toFollow: {fileID: 1461149811}
   boundingBoxObject: {fileID: 1540551661}
 --- !u!1 &1461149811
@@ -477,8 +477,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b5741c29b2d941358b54de4a4653f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   feet: {fileID: 528427061}
   whatIsGround:
     serializedVersion: 2
@@ -497,7 +497,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &1461149821
@@ -509,8 +509,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a4f9832b055d42178034bfebfa4d9a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   flashlight: {fileID: 1699753688}
   bulletPrefab: {fileID: 1367589093637900, guid: 6858b1937458a445faffd95315d6d407,
     type: 2}
@@ -1025,6 +1025,7 @@ GameObject:
   - component: {fileID: 2050859339}
   - component: {fileID: 2050859340}
   - component: {fileID: 2050859336}
+  - component: {fileID: 2050859338}
   m_Layer: 0
   m_Name: guard
   m_TagString: enemy
@@ -1103,9 +1104,20 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &2050859338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050859333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098ea51a4d2ac477eac383331af76572, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!61 &2050859339
 BoxCollider2D:
   m_ObjectHideFlags: 0

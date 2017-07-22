@@ -9,13 +9,18 @@ public class FlashlightGun : MonoBehaviour
     // In bullets / s
     private const float FIRE_RATE = 5;
 
+    public const int STATE_FACING_FORWARD = 0;
+    public const int STATE_FACING_BACKWARD = 1;
+
     public GameObject flashlight;
     public GameObject bulletPrefab;
 
+    private Animator animator;
     private float shootTimer;
 
     void Start ()
     {
+        animator = GetComponent<Animator> ();
         shootTimer = 0;
     }
 
@@ -43,7 +48,7 @@ public class FlashlightGun : MonoBehaviour
         var normalizedMouseDirection = mousePostionRelativeToBase / mouseBaseDistance;
 
         // Set flashlight angle
-        flashlight.transform.rotation = Quaternion.Euler (-toDegrees (mouseBaseAngle), 90, 0);
+        flashlight.transform.rotation = Quaternion.Euler (-ToDegrees (mouseBaseAngle), 90, 0);
 
         // Set flashlight intensity
         flashlight.GetComponent<Light> ().intensity = INTENSITY_MULTIPLIER * mouseBaseDistance;
@@ -56,12 +61,15 @@ public class FlashlightGun : MonoBehaviour
             }
             shootTimer -= Time.fixedDeltaTime;
         }
+
+        // Change vampire state according to what way he's looking
+        SetVampireLook (mouseBaseAngle);
     }
 
     private void Shoot (Vector2 direction, float angle)
     {
         var position = new Vector2 (flashlight.transform.position.x, flashlight.transform.position.y);
-        var rotation = Quaternion.Euler (0, 0, toDegrees (angle));
+        var rotation = Quaternion.Euler (0, 0, ToDegrees (angle));
         var bullet = (GameObject)Instantiate (bulletPrefab, position, rotation);
         // Let's not collide with ourselves
         Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
@@ -69,7 +77,15 @@ public class FlashlightGun : MonoBehaviour
         Destroy (bullet, 0.5f);
     }
 
-    private float toDegrees (float radians)
+    private void SetVampireLook (float flashlightAngle)
+    {
+        var currentDirectionIsRight = Mathf.Abs (flashlightAngle) <= Mathf.PI / 2;
+        var lastDirectionWasRight = animator.GetBool ("last-direction-was-right");
+        var newState = (lastDirectionWasRight == currentDirectionIsRight) ? STATE_FACING_FORWARD : STATE_FACING_BACKWARD;
+        animator.SetInteger ("state", newState);
+    }
+
+    private float ToDegrees (float radians)
     {
         return radians * 180 / Mathf.PI;
     }

@@ -13,10 +13,12 @@ public class Player : MonoBehaviour
     public LayerMask whatIsGround;
 
     private Rigidbody2D body;
+    private Animator animator;
 
     void Start ()
     {
         body = GetComponent<Rigidbody2D> ();
+        animator = GetComponent<Animator> ();
     }
 
     void FixedUpdate ()
@@ -52,16 +54,39 @@ public class Player : MonoBehaviour
     private void MoveLeft ()
     {
         Move (Vector2.left);
+        if (animator.GetBool ("last-direction-was-right")) {
+            Flip ();
+        }
+        animator.SetBool ("last-direction-was-right", false);
     }
 
     private void MoveRight ()
     {
         Move (Vector2.right);
+        if (!animator.GetBool ("last-direction-was-right")) {
+            Flip ();
+        }
+        animator.SetBool ("last-direction-was-right", true);
     }
 
     private void Move (Vector2 translationVector)
     {
         transform.Translate (MOVE_SPEED * translationVector);
+    }
+
+    private void Flip ()
+    {
+        // Flip whole thing (not just the sprite)
+        var scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+
+        // Make him immediately look in the right direction (otherwise the flipping fucks things up for a split sec.)
+        var otherState = animator.GetInteger ("state") == FlashlightGun.STATE_FACING_FORWARD
+            ? FlashlightGun.STATE_FACING_BACKWARD
+            : FlashlightGun.STATE_FACING_FORWARD;
+        animator.SetInteger ("state", otherState);
+        animator.Play (otherState == FlashlightGun.STATE_FACING_FORWARD ? "lookforward" : "lookback");
     }
 
     private void Jump ()
@@ -75,11 +100,7 @@ public class Player : MonoBehaviour
 
     private bool isGrounded ()
     {
-//        var colliderBounds = GetComponent<BoxCollider2D> ().bounds;
-//        var feet = Rect.MinMaxRect (colliderBounds.min.x + 0.1f, colliderBounds.min.y, colliderBounds.max.x - 0.1f, colliderBounds.min.y + 0.1f);
         var feetRect = new Rect (feet.transform.position.x, feet.transform.position.y, FEET_WIDTH, 0.1f);
-//        Debug.DrawLine (colliderBounds.min, colliderBounds.max);
-        Debug.DrawLine (feetRect.min, feetRect.max);
         return Physics2D.OverlapArea (feetRect.min, feetRect.max, whatIsGround);
     }
 

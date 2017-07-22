@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b568b5d1154946e49bacb6cf965c3113
-timeCreated: 1500695267
+timeCreated: 1500719727
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,17 @@ TextureImporter:
     21300002: guard-sprite_1
     21300004: guard-sprite_2
     21300006: guard-sprite_3
+    21300008: guard-sprite_4
+    21300010: guard-sprite_5
+    21300012: guard-sprite_6
+    21300014: guard-sprite_7
+    21300016: guard-sprite_8
+    21300018: guard-sprite_9
+    21300020: guard-sprite_10
+    21300022: guard-sprite_11
+    21300024: guard-sprite_12
+    21300026: guard-sprite_13
+    21300028: guard-sprite_14
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -83,9 +94,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 651
-        height: 672
+        y: 336
+        width: 423
+        height: 336
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,10 +107,10 @@ TextureImporter:
       name: guard-sprite_1
       rect:
         serializedVersion: 2
-        x: 651
-        y: 0
-        width: 651
-        height: 672
+        x: 423
+        y: 336
+        width: 423
+        height: 336
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,10 +121,10 @@ TextureImporter:
       name: guard-sprite_2
       rect:
         serializedVersion: 2
-        x: 1302
-        y: 0
-        width: 651
-        height: 672
+        x: 846
+        y: 336
+        width: 423
+        height: 336
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,10 +135,164 @@ TextureImporter:
       name: guard-sprite_3
       rect:
         serializedVersion: 2
-        x: 1953
+        x: 1269
+        y: 336
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_4
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 336
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_5
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 336
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_6
+      rect:
+        serializedVersion: 2
+        x: 2538
+        y: 336
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_7
+      rect:
+        serializedVersion: 2
+        x: 2961
+        y: 336
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_8
+      rect:
+        serializedVersion: 2
+        x: 3384
+        y: 336
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_9
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
-        width: 651
-        height: 672
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_10
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 0
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_11
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 0
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_12
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 0
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_13
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 0
+        width: 423
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite_14
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 0
+        width: 423
+        height: 336
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

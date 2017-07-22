@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - deadlyOnTouch
+  - enemy
+  - vampire
   layers:
   - Default
   - TransparentFX
@@ -53,4 +55,7 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 2471745317
+    locked: 0
+  - name: bullets
+    uniqueID: 1706230785
     locked: 0

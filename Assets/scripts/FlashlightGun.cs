@@ -66,6 +66,7 @@ public class FlashlightGun : MonoBehaviour
         // Let's not collide with ourselves
         Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
         bullet.GetComponent<Rigidbody2D> ().velocity = BULLET_SPEED * direction;
+        Destroy (bullet, 0.5f);
     }
 
     private float toDegrees (float radians)

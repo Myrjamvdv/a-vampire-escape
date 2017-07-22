@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private const float MOVE_SPEED = 0.1f;
-    private const float JUMP_SPEED = 1400f;
-    private const float FEET_RADIUS = 0.01f;
+    private const float JUMP_SPEED = 17f;
+    private const float FEET_WIDTH = 0.40f;
 
     public GameObject feet;
     public LayerMask whatIsGround;
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     private void Jump ()
     {
         if (isGrounded ()) {
-            body.AddForce (JUMP_SPEED * Vector2.up);
+            body.velocity = JUMP_SPEED * Vector2.up;
         } else {
             Debug.Log ("Can't jump if you're feet aren't touching the ground!");
         }
@@ -75,7 +75,12 @@ public class Player : MonoBehaviour
 
     private bool isGrounded ()
     {
-        return Physics2D.OverlapCircle (feet.transform.position, FEET_RADIUS, whatIsGround);
+//        var colliderBounds = GetComponent<BoxCollider2D> ().bounds;
+//        var feet = Rect.MinMaxRect (colliderBounds.min.x + 0.1f, colliderBounds.min.y, colliderBounds.max.x - 0.1f, colliderBounds.min.y + 0.1f);
+        var feetRect = new Rect (feet.transform.position.x, feet.transform.position.y, FEET_WIDTH, 0.1f);
+//        Debug.DrawLine (colliderBounds.min, colliderBounds.max);
+        Debug.DrawLine (feetRect.min, feetRect.max);
+        return Physics2D.OverlapArea (feetRect.min, feetRect.max, whatIsGround);
     }
 
     private void Die ()

@@ -15,6 +15,6 @@ public class RestartLevel : MonoBehaviour
     IEnumerator RestartAfterDelay ()
     {
         yield return new WaitForSeconds (restartDelay);
-        SceneManager.LoadScene ("Scene1");
+        SceneManager.LoadScene ("intro");
     }
 }

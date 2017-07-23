@@ -93,8 +93,6 @@ public class Player : MonoBehaviour
     {
         if (isGrounded ()) {
             body.velocity = jumpSpeed * Vector2.up;
-        } else {
-            Debug.Log ("Can't jump if you're feet aren't touching the ground!");
         }
     }
 

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4633699517076500}
   - component: {fileID: 212656370328350574}
   - component: {fileID: 68644583524053874}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: small-garlic
   m_TagString: deadlyOnTouch
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4350684909000828}
   - component: {fileID: 212038840991595414}
   - component: {fileID: 68671499748532812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: garlic-pile
   m_TagString: deadlyOnTouch
   m_Icon: {fileID: 0}

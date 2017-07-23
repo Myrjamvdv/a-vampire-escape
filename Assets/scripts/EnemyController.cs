@@ -21,8 +21,8 @@ public class EnemyController : MonoBehaviour
 
     public GameObject idleCollider;
     public GameObject attackingCollider;
-    public GameObject vampire;
 
+    private GameObject vampire;
     private Animator animator;
     private Vector2[] goals;
     private int currentGoalIdx;
@@ -31,6 +31,7 @@ public class EnemyController : MonoBehaviour
 
     void Start ()
     {
+        vampire = GameObject.Find ("vampire");
         animator = GetComponent<Animator> ();
         goals = new Vector2[AMOUNT_OF_GOALS];
         goals [0] = transform.position;

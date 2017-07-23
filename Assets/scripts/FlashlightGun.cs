@@ -19,7 +19,6 @@ public class FlashlightGun : MonoBehaviour
 
     private Animator animator;
     private float shootTimer;
-    private int state;
     private Quaternion armFrontStartRotation;
     private Quaternion armBackStartRotation;
 
@@ -27,7 +26,6 @@ public class FlashlightGun : MonoBehaviour
     {
         animator = GetComponent<Animator> ();
         shootTimer = 0;
-        state = STATE_FACING_FORWARD;
         armFrontStartRotation = armFront.transform.rotation;
         armBackStartRotation = armBack.transform.rotation;
     }
@@ -54,12 +52,10 @@ public class FlashlightGun : MonoBehaviour
         var mouseBaseDistance = Vector2.Distance (mousePosition, basePosition);
         var mouseBaseAngle = Mathf.Atan2 (mousePostionRelativeToBase.y, mousePostionRelativeToBase.x);
         var normalizedMouseDirection = mousePostionRelativeToBase / mouseBaseDistance;
-
-        // Set flashlight angle
-        flashlight.transform.rotation = Quaternion.Euler (-ToDegrees (mouseBaseAngle), 90, 0);
-
-        // Set flashlight intensity
-        flashlight.GetComponent<Light> ().intensity = intensityMultiplier * mouseBaseDistance;
+        var facingState = CalculateFacingState (mouseBaseAngle);
+        var arm = PickArm (facingState);
+        var flashlight = arm.GetComponentInChildren<Light> ();
+        flashlight.intensity = intensityMultiplier * mouseBaseDistance;
 
         // Shoot if mouse button is pressed
         if (Input.GetMouseButton (0)) {
@@ -71,10 +67,10 @@ public class FlashlightGun : MonoBehaviour
         }
 
         // Change vampire state according to what way he's looking
-        SetVampireLook (mouseBaseAngle);
+        SetVampireLook (facingState);
 
         // Change vampire arm according to angle
-        SetVampireArm (mouseBaseAngle);
+        SetVampireArm (facingState, mouseBaseAngle);
     }
 
     private void Shoot (Vector2 direction, float angle)
@@ -88,19 +84,28 @@ public class FlashlightGun : MonoBehaviour
         Destroy (bullet, 0.5f);
     }
 
-    private void SetVampireLook (float flashlightAngle)
+    private int CalculateFacingState (float flashlightAngle)
     {
         var currentDirectionIsRight = Mathf.Abs (flashlightAngle) <= Mathf.PI / 2;
         var lastDirectionWasRight = animator.GetBool ("last-direction-was-right");
-        state = (lastDirectionWasRight == currentDirectionIsRight) ? STATE_FACING_FORWARD : STATE_FACING_BACKWARD;
-        animator.Play (state == STATE_FACING_FORWARD ? "lookforward" : "lookback");
-        animator.SetInteger ("state", state);
+        return (lastDirectionWasRight == currentDirectionIsRight) ? STATE_FACING_FORWARD : STATE_FACING_BACKWARD;
     }
 
-    private void SetVampireArm (float angle)
+    private void SetVampireLook (int facingState)
+    {
+        animator.Play (facingState == STATE_FACING_FORWARD ? "lookforward" : "lookback");
+        animator.SetInteger ("state", facingState);
+    }
+
+    private GameObject PickArm (int facingState)
+    {
+        return facingState == STATE_FACING_FORWARD ? armFront : armBack;
+    }
+
+    private void SetVampireArm (int facingState, float angle)
     {
         var zAngle = Mathf.Abs (angle) < Mathf.PI / 2 ? angle : angle + Mathf.PI;
-        if (state == STATE_FACING_FORWARD) {
+        if (facingState == STATE_FACING_FORWARD) {
             armFront.SetActive (true);
             armBack.SetActive (false);
             armFront.transform.rotation = armFrontStartRotation * Quaternion.Euler (0, 0, ToDegrees (zAngle));

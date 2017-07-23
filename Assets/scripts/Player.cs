@@ -131,6 +131,6 @@ public class Player : MonoBehaviour
     IEnumerator RestartAfterDelay ()
     {
         yield return new WaitForSeconds (restartDelay);
-        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+        SceneManager.LoadScene ("ded");
     }
 }

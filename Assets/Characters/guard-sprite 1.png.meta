@@ -1,24 +1,24 @@
 fileFormatVersion: 2
-guid: b568b5d1154946e49bacb6cf965c3113
-timeCreated: 1500719727
+guid: fe9def3d11aedf74cb69c62c4188ac79
+timeCreated: 1500777685
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: guard-sprite_0
-    21300002: guard-sprite_1
-    21300004: guard-sprite_2
-    21300006: guard-sprite_3
-    21300008: guard-sprite_4
-    21300010: guard-sprite_5
-    21300012: guard-sprite_6
-    21300014: guard-sprite_7
-    21300016: guard-sprite_8
-    21300018: guard-sprite_9
-    21300020: guard-sprite_10
-    21300022: guard-sprite_11
-    21300024: guard-sprite_12
-    21300026: guard-sprite_13
-    21300028: guard-sprite_14
+    21300000: guard-sprite 1_0
+    21300002: guard-sprite 1_1
+    21300004: guard-sprite 1_2
+    21300006: guard-sprite 1_3
+    21300008: guard-sprite 1_4
+    21300010: guard-sprite 1_5
+    21300012: guard-sprite 1_6
+    21300014: guard-sprite 1_7
+    21300016: guard-sprite 1_8
+    21300018: guard-sprite 1_9
+    21300020: guard-sprite 1_10
+    21300022: guard-sprite 1_11
+    21300024: guard-sprite 1_12
+    21300026: guard-sprite 1_13
+    21300028: guard-sprite 1_14
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -60,7 +60,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -90,13 +90,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: guard-sprite_0
+      name: guard-sprite 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 336
-        width: 423
-        height: 336
+        y: 672
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,13 +104,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_1
+      name: guard-sprite 1_1
       rect:
         serializedVersion: 2
-        x: 423
-        y: 336
-        width: 423
-        height: 336
+        x: 1246
+        y: 672
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,13 +118,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_2
+      name: guard-sprite 1_2
       rect:
         serializedVersion: 2
-        x: 846
-        y: 336
-        width: 423
-        height: 336
+        x: 2492
+        y: 672
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,13 +132,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_3
+      name: guard-sprite 1_3
       rect:
         serializedVersion: 2
-        x: 1269
-        y: 336
-        width: 423
-        height: 336
+        x: 3738
+        y: 672
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,13 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_4
+      name: guard-sprite 1_4
       rect:
         serializedVersion: 2
-        x: 1692
-        y: 336
-        width: 423
-        height: 336
+        x: 4984
+        y: 672
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,13 +160,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_5
+      name: guard-sprite 1_5
       rect:
         serializedVersion: 2
-        x: 2115
-        y: 336
-        width: 423
-        height: 336
+        x: 6230
+        y: 672
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,13 +174,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_6
+      name: guard-sprite 1_6
       rect:
         serializedVersion: 2
-        x: 2538
-        y: 336
-        width: 423
-        height: 336
+        x: 7476
+        y: 672
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,13 +188,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_7
+      name: guard-sprite 1_7
       rect:
         serializedVersion: 2
-        x: 2961
-        y: 336
-        width: 423
-        height: 336
+        x: 8722
+        y: 672
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,27 +202,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_8
-      rect:
-        serializedVersion: 2
-        x: 3384
-        y: 336
-        width: 423
-        height: 336
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: guard-sprite_9
+      name: guard-sprite 1_8
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 423
-        height: 336
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,13 +216,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_10
+      name: guard-sprite 1_9
       rect:
         serializedVersion: 2
-        x: 423
+        x: 1246
         y: 0
-        width: 423
-        height: 336
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,13 +230,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_11
+      name: guard-sprite 1_10
       rect:
         serializedVersion: 2
-        x: 846
+        x: 2492
         y: 0
-        width: 423
-        height: 336
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,13 +244,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_12
+      name: guard-sprite 1_11
       rect:
         serializedVersion: 2
-        x: 1269
+        x: 3738
         y: 0
-        width: 423
-        height: 336
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,13 +258,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_13
+      name: guard-sprite 1_12
       rect:
         serializedVersion: 2
-        x: 1692
+        x: 4984
         y: 0
-        width: 423
-        height: 336
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,13 +272,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: guard-sprite_14
+      name: guard-sprite 1_13
       rect:
         serializedVersion: 2
-        x: 2115
+        x: 6230
         y: 0
-        width: 423
-        height: 336
+        width: 1246
+        height: 672
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guard-sprite 1_14
+      rect:
+        serializedVersion: 2
+        x: 7476
+        y: 0
+        width: 1246
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

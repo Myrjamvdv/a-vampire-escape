@@ -2469,6 +2469,7 @@ MonoBehaviour:
   goalApproximationMargin: 1
   attackRange: 7
   attackSpeed: 2.5
+  idleRange: 5
   idleCollider: {fileID: 2101949002}
   attackingCollider: {fileID: 323812965}
   vampire: {fileID: 1461149811}

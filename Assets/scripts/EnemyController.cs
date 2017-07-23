@@ -11,12 +11,13 @@ public class EnemyController : MonoBehaviour
     private const int STATE_DED = 2;
 
     // In world units / s, I think?
-    public float idleSpeed = 1.2f;
-    public float goalApproximationMargin = 1f;
+    public float idleSpeed;
+    public float goalApproximationMargin;
 
-    public float attackRange = 7;
+    public float attackRange;
     // In world units / s, I think?
-    public float attackSpeed = 2.5f;
+    public float attackSpeed;
+    public float idleRange;
 
     public GameObject idleCollider;
     public GameObject attackingCollider;
@@ -33,7 +34,7 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator> ();
         goals = new Vector2[AMOUNT_OF_GOALS];
         goals [0] = transform.position;
-        goals [1] = transform.position + 5 * (Vector3)Vector2.right;
+        goals [1] = transform.position + idleRange * (Vector3)Vector2.right;
         currentGoalIdx = 1;
         state = STATE_IDLE;
         oldDirectionWasRight = true;

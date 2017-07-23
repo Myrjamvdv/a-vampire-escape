@@ -56,6 +56,9 @@ TagManager:
   - name: player
     uniqueID: 2471745317
     locked: 0
+  - name: player-arms
+    uniqueID: 1269973207
+    locked: 0
   - name: bullets
     uniqueID: 1706230785
     locked: 0

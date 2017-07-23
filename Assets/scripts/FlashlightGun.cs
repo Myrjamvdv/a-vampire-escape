@@ -14,14 +14,22 @@ public class FlashlightGun : MonoBehaviour
 
     public GameObject flashlight;
     public GameObject bulletPrefab;
+    public GameObject armFront;
+    public GameObject armBack;
 
     private Animator animator;
     private float shootTimer;
+    private int state;
+    private Quaternion armFrontStartRotation;
+    private Quaternion armBackStartRotation;
 
     void Start ()
     {
         animator = GetComponent<Animator> ();
         shootTimer = 0;
+        state = STATE_FACING_FORWARD;
+        armFrontStartRotation = armFront.transform.rotation;
+        armBackStartRotation = armBack.transform.rotation;
     }
 
     void Update ()
@@ -64,6 +72,9 @@ public class FlashlightGun : MonoBehaviour
 
         // Change vampire state according to what way he's looking
         SetVampireLook (mouseBaseAngle);
+
+        // Change vampire arm according to angle
+        SetVampireArm (mouseBaseAngle);
     }
 
     private void Shoot (Vector2 direction, float angle)
@@ -81,8 +92,23 @@ public class FlashlightGun : MonoBehaviour
     {
         var currentDirectionIsRight = Mathf.Abs (flashlightAngle) <= Mathf.PI / 2;
         var lastDirectionWasRight = animator.GetBool ("last-direction-was-right");
-        var newState = (lastDirectionWasRight == currentDirectionIsRight) ? STATE_FACING_FORWARD : STATE_FACING_BACKWARD;
-        animator.SetInteger ("state", newState);
+        state = (lastDirectionWasRight == currentDirectionIsRight) ? STATE_FACING_FORWARD : STATE_FACING_BACKWARD;
+        animator.Play (state == STATE_FACING_FORWARD ? "lookforward" : "lookback");
+        animator.SetInteger ("state", state);
+    }
+
+    private void SetVampireArm (float angle)
+    {
+        var zAngle = Mathf.Abs (angle) < Mathf.PI / 2 ? angle : angle + Mathf.PI;
+        if (state == STATE_FACING_FORWARD) {
+            armFront.SetActive (true);
+            armBack.SetActive (false);
+            armFront.transform.rotation = armFrontStartRotation * Quaternion.Euler (0, 0, ToDegrees (zAngle));
+        } else {
+            armFront.SetActive (false);
+            armBack.SetActive (true);
+            armBack.transform.rotation = armBackStartRotation * Quaternion.Euler (0, 0, ToDegrees (zAngle));
+        }
     }
 
     private float ToDegrees (float radians)

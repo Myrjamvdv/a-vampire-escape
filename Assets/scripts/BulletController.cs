@@ -7,7 +7,7 @@ public class BulletController : MonoBehaviour
     void OnCollisionEnter2D (Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy") {
-            Destroy (collision.gameObject);
+            collision.gameObject.SendMessage ("Die");
         }
         Destroy (gameObject);
     }

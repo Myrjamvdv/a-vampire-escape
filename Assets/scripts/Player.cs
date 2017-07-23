@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D (Collision2D collision)
     {
         if (collision.gameObject.tag == "deadlyOnTouch") {
-            Die ();
+            gameObject.SendMessage ("Die");
         }
     }
 
@@ -40,10 +40,20 @@ public class Player : MonoBehaviour
             Application.Quit ();
         }
 
+        if (animator.GetInteger ("state") == FlashlightGun.STATE_DED) {
+            return;
+        }
+
+        // Hero inputs from here on
+
         if (Input.GetKey (KeyCode.RightArrow)) {
             MoveRight ();
         } else if (Input.GetKey (KeyCode.LeftArrow)) {
             MoveLeft ();
+        } else {
+            var oldState = animator.GetInteger ("state");
+            var forwards = oldState == FlashlightGun.STATE_IDLE_FORWARD || oldState == FlashlightGun.STATE_WALKING_FORWARD;
+            animator.SetInteger ("state", forwards ? FlashlightGun.STATE_IDLE_FORWARD : FlashlightGun.STATE_IDLE_BACKWARD);
         }
 
         if (Input.GetKey (KeyCode.UpArrow)) {
@@ -72,6 +82,10 @@ public class Player : MonoBehaviour
     private void Move (Vector2 translationVector)
     {
         transform.Translate (moveSpeed * translationVector);
+
+        var oldState = animator.GetInteger ("state");
+        var forwards = oldState == FlashlightGun.STATE_IDLE_FORWARD || oldState == FlashlightGun.STATE_WALKING_FORWARD;
+        animator.SetInteger ("state", forwards ? FlashlightGun.STATE_WALKING_FORWARD : FlashlightGun.STATE_WALKING_BACKWARD);
     }
 
     private void Flip ()
@@ -82,11 +96,15 @@ public class Player : MonoBehaviour
         transform.localScale = scale;
 
         // Make him immediately look in the right direction (otherwise the flipping fucks things up for a split sec.)
-        var otherState = animator.GetInteger ("state") == FlashlightGun.STATE_FACING_FORWARD
-            ? FlashlightGun.STATE_FACING_BACKWARD
-            : FlashlightGun.STATE_FACING_FORWARD;
+        var oldState = animator.GetInteger ("state");
+        var forwards = oldState == FlashlightGun.STATE_IDLE_FORWARD || oldState == FlashlightGun.STATE_WALKING_FORWARD;
+        var idle = oldState == FlashlightGun.STATE_IDLE_FORWARD || oldState == FlashlightGun.STATE_IDLE_BACKWARD;
+        var otherState = forwards
+            ? (idle ? FlashlightGun.STATE_IDLE_BACKWARD : FlashlightGun.STATE_WALKING_BACKWARD)
+            : (idle ? FlashlightGun.STATE_IDLE_FORWARD : FlashlightGun.STATE_WALKING_FORWARD);
         animator.SetInteger ("state", otherState);
-        animator.Play (otherState == FlashlightGun.STATE_FACING_FORWARD ? "lookforward" : "lookback");
+        var stateName = (idle ? "vampidle" : "look") + (forwards ? "back" : "forward");
+        animator.Play (stateName);
     }
 
     private void Jump ()
@@ -102,9 +120,10 @@ public class Player : MonoBehaviour
         return Physics2D.OverlapArea (feetRect.min, feetRect.max, whatIsGround);
     }
 
-    private void Die ()
+    public void Die ()
     {
         Debug.Log ("Game over!");
-        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+        animator.SetInteger ("state", FlashlightGun.STATE_DED);
+//        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
 }

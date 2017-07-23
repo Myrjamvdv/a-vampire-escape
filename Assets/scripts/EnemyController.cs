@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // In world units / s, I think?
-    private const float IDLE_SPEED = 1.2f;
     private const int AMOUNT_OF_GOALS = 2;
-    private const float GOAL_APPROXIMATION_MARGIN = 1f;
-
-    private const float ATTACK_RANGE = 7;
-    private const float ATTACK_SPEED = 2.5f;
 
     private const int STATE_IDLE = 0;
     private const int STATE_ATTACKING = 1;
     private const int STATE_DED = 2;
+
+    // In world units / s, I think?
+    public float idleSpeed = 1.2f;
+    public float goalApproximationMargin = 1f;
+
+    public float attackRange = 7;
+    // In world units / s, I think?
+    public float attackSpeed = 2.5f;
 
     public GameObject idleCollider;
     public GameObject attackingCollider;
@@ -80,16 +82,16 @@ public class EnemyController : MonoBehaviour
 
     private void WalkAround ()
     {
-        transform.position = Vector2.MoveTowards (transform.position, goals [currentGoalIdx], IDLE_SPEED * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards (transform.position, goals [currentGoalIdx], idleSpeed * Time.fixedDeltaTime);
         // If we're approximately there, move to the next goal
-        if (Vector2.Distance (transform.position, goals [currentGoalIdx]) < GOAL_APPROXIMATION_MARGIN) {
+        if (Vector2.Distance (transform.position, goals [currentGoalIdx]) < goalApproximationMargin) {
             currentGoalIdx = (currentGoalIdx + 1) % AMOUNT_OF_GOALS;
         }
     }
 
     private void Attack ()
     {
-        transform.position = Vector2.MoveTowards (transform.position, vampire.transform.position, ATTACK_SPEED * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards (transform.position, vampire.transform.position, attackSpeed * Time.fixedDeltaTime);
     }
 
     private void UpdateState (int newState)
@@ -111,7 +113,7 @@ public class EnemyController : MonoBehaviour
 
     private bool IsVampireWithinRange ()
     {
-        return Vector2.Distance (transform.position, vampire.transform.position) < ATTACK_RANGE;
+        return Vector2.Distance (transform.position, vampire.transform.position) < attackRange;
     }
 
     private void UpdateAnimation (Vector2 oldPosition)

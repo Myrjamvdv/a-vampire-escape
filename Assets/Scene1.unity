@@ -479,6 +479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5741c29b2d941358b54de4a4653f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 0.1
+  jumpSpeed: 17
+  feetWidth: 0.4
   feet: {fileID: 528427061}
   whatIsGround:
     serializedVersion: 2
@@ -511,6 +514,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4f9832b055d42178034bfebfa4d9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intensityMultiplier: 0.25
+  bulletSpeed: 20
+  fireRate: 5
   flashlight: {fileID: 1699753688}
   bulletPrefab: {fileID: 1367589093637900, guid: 6858b1937458a445faffd95315d6d407,
     type: 2}
@@ -1117,6 +1123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098ea51a4d2ac477eac383331af76572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idleSpeed: 1.2
+  goalApproximationMargin: 1
+  attackRange: 7
+  attackSpeed: 2.5
   idleCollider: {fileID: 2101949002}
   attackingCollider: {fileID: 323812965}
   vampire: {fileID: 1461149811}

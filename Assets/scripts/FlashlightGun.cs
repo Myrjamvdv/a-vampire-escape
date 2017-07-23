@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FlashlightGun : MonoBehaviour
 {
-    private const float INTENSITY_MULTIPLIER = .25f;
-    private const float BULLET_SPEED = 20;
-    // In bullets / s
-    private const float FIRE_RATE = 5;
-
     public const int STATE_FACING_FORWARD = 0;
     public const int STATE_FACING_BACKWARD = 1;
+
+    public float intensityMultiplier;
+    public float bulletSpeed;
+    // In bullets / s
+    public float fireRate;
 
     public GameObject flashlight;
     public GameObject bulletPrefab;
@@ -51,13 +51,13 @@ public class FlashlightGun : MonoBehaviour
         flashlight.transform.rotation = Quaternion.Euler (-ToDegrees (mouseBaseAngle), 90, 0);
 
         // Set flashlight intensity
-        flashlight.GetComponent<Light> ().intensity = INTENSITY_MULTIPLIER * mouseBaseDistance;
+        flashlight.GetComponent<Light> ().intensity = intensityMultiplier * mouseBaseDistance;
 
         // Shoot if mouse button is pressed
         if (Input.GetMouseButton (0)) {
             if (shootTimer <= 0) {
                 Shoot (normalizedMouseDirection, mouseBaseAngle);
-                shootTimer += 1 / FIRE_RATE;
+                shootTimer += 1 / fireRate;
             }
             shootTimer -= Time.fixedDeltaTime;
         }
@@ -73,7 +73,7 @@ public class FlashlightGun : MonoBehaviour
         var bullet = (GameObject)Instantiate (bulletPrefab, position, rotation);
         // Let's not collide with ourselves
         Physics2D.IgnoreCollision (bullet.GetComponent<Collider2D> (), GetComponent<Collider2D> ());
-        bullet.GetComponent<Rigidbody2D> ().velocity = BULLET_SPEED * direction;
+        bullet.GetComponent<Rigidbody2D> ().velocity = bulletSpeed * direction;
         Destroy (bullet, 0.5f);
     }
 

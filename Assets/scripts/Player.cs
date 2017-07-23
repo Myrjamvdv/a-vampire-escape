@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    public float restartDelay;
     public float moveSpeed;
     public float jumpSpeed;
     public float feetWidth;
@@ -124,6 +125,12 @@ public class Player : MonoBehaviour
     {
         Debug.Log ("Game over!");
         animator.SetInteger ("state", FlashlightGun.STATE_DED);
-//        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+        StartCoroutine (RestartAfterDelay ());     
+    }
+
+    IEnumerator RestartAfterDelay ()
+    {
+        yield return new WaitForSeconds (restartDelay);
+        SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
     }
 }

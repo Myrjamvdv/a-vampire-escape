@@ -341,7 +341,6 @@ MonoBehaviour:
   idleRange: 5
   idleCollider: {fileID: 1879792546647230}
   attackingCollider: {fileID: 1893953365498594}
-  vampire: {fileID: 1581245447296512, guid: 64b342453b0399949be757951e8c21e0, type: 2}
 --- !u!212 &212138300695383542
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
 
     private GameObject vampire;
     private Animator animator;
+    private AudioSource dieSound;
     private Vector2[] goals;
     private int currentGoalIdx;
     private int state;
@@ -33,6 +34,7 @@ public class EnemyController : MonoBehaviour
     {
         vampire = GameObject.Find ("vampire");
         animator = GetComponent<Animator> ();
+        dieSound = GetComponent<AudioSource> ();
         goals = new Vector2[AMOUNT_OF_GOALS];
         goals [0] = transform.position;
         goals [1] = transform.position + idleRange * (Vector3)Vector2.right;
@@ -60,6 +62,7 @@ public class EnemyController : MonoBehaviour
     {
         Debug.Log ("Nice job! You killed him!");
         UpdateState (STATE_DED);
+        dieSound.Play ();
     }
 
     private int FindAppropriateState ()

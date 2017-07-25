@@ -15,11 +15,13 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D body;
     private Animator animator;
+    private AudioSource dieSound;
 
     void Start ()
     {
         body = GetComponent<Rigidbody2D> ();
         animator = GetComponent<Animator> ();
+        dieSound = GetComponent<AudioSource> ();
     }
 
     void FixedUpdate ()
@@ -126,6 +128,7 @@ public class Player : MonoBehaviour
         Debug.Log ("Game over!");
         animator.SetInteger ("state", FlashlightGun.STATE_DED);
         StartCoroutine (RestartAfterDelay ());     
+        dieSound.Play ();
     }
 
     IEnumerator RestartAfterDelay ()

@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float restartDelay;
     public float moveSpeed;
     public float jumpSpeed;
     public float feetWidth;
+    public float dedRestartDelay;
+    public float winRestartDelay;
 
     public GameObject feet;
+    public GameObject antidote;
     public LayerMask whatIsGround;
 
     private Rigidbody2D body;
@@ -33,6 +35,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "deadlyOnTouch") {
             gameObject.SendMessage ("Die");
+        } else if (collision.gameObject == antidote) {
+            gameObject.SendMessage ("Win");
         }
     }
 
@@ -127,13 +131,19 @@ public class Player : MonoBehaviour
     {
         Debug.Log ("Game over!");
         animator.SetInteger ("state", FlashlightGun.STATE_DED);
-        StartCoroutine (RestartAfterDelay ());     
+        StartCoroutine (LoadSceneAfterDelay ("ded", dedRestartDelay));     
         dieSound.Play ();
     }
 
-    IEnumerator RestartAfterDelay ()
+    public void Win ()
+    {
+        Debug.Log ("Hooray! You won!");
+        StartCoroutine (LoadSceneAfterDelay ("u-win", winRestartDelay));     
+    }
+
+    IEnumerator LoadSceneAfterDelay (string sceneName, float restartDelay)
     {
         yield return new WaitForSeconds (restartDelay);
-        SceneManager.LoadScene ("ded");
+        SceneManager.LoadScene (sceneName);
     }
 }

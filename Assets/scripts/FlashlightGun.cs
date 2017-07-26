@@ -49,6 +49,11 @@ public class FlashlightGun : MonoBehaviour
 
     public void Die ()
     {
+        DeactiveArms ();
+    }
+
+    public void DeactiveArms ()
+    {
         armFront.SetActive (false);
         armBack.SetActive (false);
     }

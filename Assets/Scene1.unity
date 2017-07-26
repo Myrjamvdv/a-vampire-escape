@@ -290,6 +290,16 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 212038840991595414, guid: 6e98f9b6bbb6c0f40ba365b89d2c17eb,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 209516569
+      objectReference: {fileID: 0}
+    - target: {fileID: 212038840991595414, guid: 6e98f9b6bbb6c0f40ba365b89d2c17eb,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e98f9b6bbb6c0f40ba365b89d2c17eb, type: 2}
   m_IsPrefabParent: 0
@@ -438,7 +448,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1269973207
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bad9faf6644150e45a28436c0fa6cbed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -708,7 +718,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1269973207
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e1bbca8cdab26094db4b924719973c4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2060,7 +2070,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1823221979
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 92fc75d5760e2d74f81634de385d4390, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2494,6 +2504,16 @@ Prefab:
         type: 2}
       propertyPath: idleRange
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 212138300695383542, guid: b85ab90869dc28245bba868509cb2a6c,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1706230785
+      objectReference: {fileID: 0}
+    - target: {fileID: 212138300695383542, guid: b85ab90869dc28245bba868509cb2a6c,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b85ab90869dc28245bba868509cb2a6c, type: 2}
